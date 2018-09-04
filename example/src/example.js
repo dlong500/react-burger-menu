@@ -105,7 +105,7 @@ class Demo extends Component {
     if (this.state.side === 'right') {
       jsx = (
         <MenuWrap wait={20} side={this.state.side}>
-          <Menu id={this.state.currentMenu} pageWrapId={'page-wrap'} outerContainerId={'outer-container'} right>
+          <Menu id={this.state.currentMenu} pageWrapId={'page-wrap'} outerContainerId={'outer-container'} htmlClassName={'menu-html'} bodyClassName={'menu-body'} right>
             {items}
           </Menu>
         </MenuWrap>
@@ -113,7 +113,7 @@ class Demo extends Component {
     } else {
       jsx = (
         <MenuWrap wait={20}>
-          <Menu id={this.state.currentMenu} pageWrapId={'page-wrap'} outerContainerId={'outer-container'}>
+          <Menu id={this.state.currentMenu} pageWrapId={'page-wrap'} outerContainerId={'outer-container'} htmlClassName={'menu-html'} bodyClassName={'menu-body'}>
             {items}
           </Menu>
         </MenuWrap>

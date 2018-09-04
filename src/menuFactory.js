@@ -40,6 +40,10 @@ export default styles => {
 
     // Applies component-specific styles to external wrapper elements.
     applyWrapperStyles(set = true) {
+      if (this.props.htmlClassName) {
+        const html = document.querySelector('html');
+        html.classList[set ? 'add' : 'remove'](this.props.htmlClassName);
+      }
       if (this.props.bodyClassName) {
         const body = document.querySelector('body');
         body.classList[set ? 'add' : 'remove'](this.props.bodyClassName);
@@ -81,9 +85,9 @@ export default styles => {
       }
 
       // Prevent any horizontal scroll.
-      [html, body].forEach(element => {
-        element.style['overflow-x'] = set ? 'hidden' : '';
-      });
+      // [html, body].forEach(element => {
+      //   element.style['overflow-x'] = set ? 'hidden' : '';
+      // });
     }
 
     // Builds styles incrementally for a given element.
