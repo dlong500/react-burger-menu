@@ -1532,6 +1532,10 @@ exports['default'] = function (styles) {
                     key: 'applyWrapperStyles',
                     value: function applyWrapperStyles() {
                         var set = arguments.length <= 0 || arguments[0] === undefined ? true : arguments[0];
+                        if (this.props.htmlClassName) {
+                            var html = document.querySelector('html');
+                            html.classList[set ? 'add' : 'remove'](this.props.htmlClassName);
+                        }
                         if (this.props.bodyClassName) {
                             var body = document.querySelector('body');
                             body.classList[set ? 'add' : 'remove'](this.props.bodyClassName);
@@ -1560,12 +1564,6 @@ exports['default'] = function (styles) {
                                 wrapper.style[prop] = set ? builtStyles[prop] : '';
                             }
                         }
-                        [
-                            html,
-                            body
-                        ].forEach(function (element) {
-                            element.style['overflow-x'] = set ? 'hidden' : '';
-                        });
                     }
                 },
                 {
